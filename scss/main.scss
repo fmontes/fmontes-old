@@ -1,0 +1,135 @@
+@import "../_bower_components/sass-mediaqueries/media-queries";
+@import "../_bower_components/flickity/dist/flickity.css";
+@import "compass";
+@import "mixins";
+@import "normalize";
+@import "variables";
+
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Glegoo:400,700);
+
+@include establish-baseline;
+
+* {
+    @include box-sizing("border-box");
+}
+
+a {
+    color: $white;
+}
+
+footer {
+    @include adjust-font-size-to(12px, .75);
+    color: $gray-dark;
+    margin: 40px 0 20px;
+
+    a {
+        color: $gray-dark;
+        font-weight: bold;
+    }
+}
+
+html {
+    background-color: $gray;
+    color: $white;
+    font-family: "Glegoo", serif;
+}
+
+header {
+    .logo {
+        display: block;
+        margin: 40px auto 5px;
+        width: 130px;
+    }
+    .social-links {
+        @include horizontal-list(14px);
+        margin: 0 auto 20px;
+        text-transform: uppercase;
+        width: 261px;
+
+        a {
+            display: block;
+            height: 40px;
+            line-height: 40px;
+        }
+    }
+}
+
+.content, footer {
+    margin-left: auto;
+    margin-right: auto;
+    width: 88%;
+
+    @include min-screen($tablet) {
+        width: 440px;
+    }
+}
+
+.dribbble-shots {
+    @include transition(opacity .5s ease-out);
+    @include opacity(0);
+    height: 0;
+
+    @include min-screen($tablet) {
+        margin: 0 auto 40px;
+        width: 260px * 2;
+    }
+
+    &.done {
+        @include opacity(1);
+        height: auto;
+    }
+
+    .shot {
+        margin: 0 5px;
+        width: 88%;
+
+        @include min-screen($tablet) {
+            @include inline-block;
+            margin: 0;
+            width: 260px;
+        }
+
+        img {
+            width: 100%;
+
+            @include min-screen($tablet) {
+                display: block;
+            }
+        }
+    }
+}
+
+.intro {
+    @include adjust-font-size-to(20px, 1.25);
+    font-weight: normal;
+}
+
+.loading {
+    display: block;
+    margin: auto;
+}
+
+.love {
+    position: relative;
+
+    &:before {
+        background-color: $gray-ligth;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: 8px;
+        width: 100%;
+    }
+    .icn-love {
+        background-color: $gray;
+        padding: 0 5px;
+        display: block;
+        height: 20px;
+        margin: 0 auto;
+        position: relative;
+        width: 32px;
+    }
+}
