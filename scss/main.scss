@@ -69,6 +69,7 @@ header {
     @include transition(opacity .5s ease-out);
     @include opacity(0);
     height: 0;
+    overflow: hidden;
 
     @include min-screen($tablet) {
         margin: 0 auto 40px;
