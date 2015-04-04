@@ -70,6 +70,7 @@ header {
     @include opacity(0);
     height: 0;
     overflow: hidden;
+    position: relative;
 
     @include min-screen($tablet) {
         margin: 0 auto 40px;
@@ -92,11 +93,8 @@ header {
         }
 
         img {
+            display: block;
             width: 100%;
-
-            @include min-screen($tablet) {
-                display: block;
-            }
         }
     }
 }
