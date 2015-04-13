@@ -1,12 +1,8 @@
 @import "../_bower_components/sass-mediaqueries/media-queries";
-@import "../_bower_components/flickity/dist/flickity.css";
 @import "compass";
 @import "mixins";
 @import "normalize";
 @import "variables";
-
-// Google Fonts
-@import url(http://fonts.googleapis.com/css?family=Glegoo:400,700);
 
 @include establish-baseline;
 
