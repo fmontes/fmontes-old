@@ -15,21 +15,16 @@ function shuffle(input) {
 
 export default {
     getShots() {
-        // Creating a promise
         var promise = new Promise(function(resolve, reject) {
-
-            // Instantiates the XMLHttpRequest
             var client = new XMLHttpRequest();
+
             client.open('GET', dribbbleUrl);
             client.setRequestHeader('Authorization', 'Bearer ' + dribbbleToken)
             client.send();
-
             client.onload = function () {
                 if (this.status >= 200 && this.status < 300) {
-                    // Performs the function "resolve" when this.status is equal to 2xx
                     resolve(shuffle(JSON.parse(this.response)));
                 } else {
-                    // Performs the function "reject" when this.status is different than 2xx
                     reject(this.statusText);
                 }
             };
@@ -39,7 +34,6 @@ export default {
             };
         });
 
-        // Return the promise
         return promise;
     }
 }
