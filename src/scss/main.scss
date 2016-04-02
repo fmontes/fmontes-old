@@ -91,6 +91,7 @@ header {
 
         @include min-screen($tablet) {
             @include inline-block;
+            height: 194px;
             margin: 0;
             width: 260px;
         }
