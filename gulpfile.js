@@ -37,6 +37,7 @@ gulp.task('styles', function() {
   gulp.src('./src/scss/*.scss')
 		// TODO: use a config.rb but it was showing error: 'Individual stylesheets must be in the sass directory'
     .pipe(compass({
+			config_file: './config.rb',
 			css: 'build/css',
 			sass: 'src/scss'
     }))

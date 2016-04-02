@@ -1,0 +1,10 @@
+require = 'compass-normalize'
+preferred_syntax = :scss
+http_path = '/'
+css_dir = 'build/css'
+sass_dir = 'src/scss'
+images_dir = 'src/images'
+javascripts_dir = 'src/js'
+relative_assets = true
+line_comments = true
+# output_style = :compressed
