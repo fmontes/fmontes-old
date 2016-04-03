@@ -6,6 +6,7 @@
 @import "components/portfolioItem";
 @import "components/portfolioItemDetail";
 @import "components/dribbbleShots";
+@import "components/loadingIndicator";
 
 // Google Fonts
 @import url(http://fonts.googleapis.com/css?family=Glegoo:400,700);
@@ -89,11 +90,6 @@ img {
 .intro {
     @include adjust-font-size-to(20px, 1.25);
     font-weight: normal;
-}
-
-.loading {
-    display: block;
-    margin: auto;
 }
 
 .love {

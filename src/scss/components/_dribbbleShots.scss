@@ -1,35 +1,35 @@
 .dribbble-shots {
-  @include transition(opacity .5s ease-out);
-  @include opacity(0);
-  height: 0;
-  overflow: hidden;
-  position: relative;
+    @include transition(opacity .5s ease-out);
+    @include opacity(0);
+    height: 0;
+    overflow: hidden;
+    position: relative;
 
-  @include min-screen($tablet) {
-    margin: 0 auto 40px;
-    width: 300px * 2;
-  }
+    @include min-screen($tablet) {
+        margin: 0 auto 40px;
+        width: 300px * 2;
+    }
 }
 
 .dribbble-shots--done {
-  @include opacity(1);
-  height: auto;
+    @include opacity(1);
+    height: auto;
 }
 
 .dribbble-shots__shot {
-  margin: 0 5px;
-  width: 88%;
+    margin: 0 5px;
+    width: 88%;
 
-  @include min-screen($tablet) {
-    @include inline-block;
-    height: 224px;
-    margin: 0;
-    width: 300px;
-  }
+    @include min-screen($tablet) {
+        @include inline-block;
+        height: 224px;
+        margin: 0;
+        width: 300px;
+    }
 
-  img {
-    display: block;
-    width: 100%;
-  }
+    img {
+        display: block;
+        width: 100%;
+}
 }
 
