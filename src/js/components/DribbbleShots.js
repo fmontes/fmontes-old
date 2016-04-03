@@ -25,10 +25,10 @@ export default class DribbbleShots extends React.Component {
     renderShots() {
         var shots = [];
         this.state.shots.forEach(function(shot) {
-            shots.push(<div className="shot" key={shot.id}><img src={shot.images.normal} className="shot-image" title={shot.title} /></div>)
+            shots.push(<div className="dribbble-shots__shot" key={shot.id}><img src={shot.images.normal} title={shot.title} /></div>)
         });
         return (
-            <div className="dribbble-shots done" id="dribbbleShots">{shots}</div>
+            <div className="dribbble-shots dribbble-shots--done" id="dribbbleShots">{shots}</div>
         )
     }
 

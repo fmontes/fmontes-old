@@ -5,6 +5,7 @@
 @import "components/portfolio";
 @import "components/portfolioItem";
 @import "components/portfolioItemDetail";
+@import "components/dribbbleShots";
 
 // Google Fonts
 @import url(http://fonts.googleapis.com/css?family=Glegoo:400,700);
@@ -75,37 +76,12 @@ img {
     }
 }
 
-.dribbble-shots {
-    @include transition(opacity .5s ease-out);
-    @include opacity(0);
-    height: 0;
-    overflow: hidden;
-    position: relative;
-
-    @include min-screen($tablet) {
-        margin: 0 auto 40px;
-        width: 300px * 2;
-    }
-
-    &.done {
-        @include opacity(1);
-        height: auto;
-    }
-
-    .shot {
-        margin: 0 5px;
-        width: 88%;
+.content {
+    &.dribbble {
+        width: 100%;
 
         @include min-screen($tablet) {
-            @include inline-block;
-            height: 224px;
-            margin: 0;
-            width: 300px;
-        }
-
-        img {
-            display: block;
-            width: 100%;
+            width: 600px;
         }
     }
 }

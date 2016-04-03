@@ -10,10 +10,12 @@ export default class Main extends React.Component {
     }
 
     render() {
+        var classes = 'content';
+        classes = this.props.location.pathname.replace('/', '') === 'dribbble' ? classes + ' dribbble' : classes;
         return (
             <div>
                 <Header />
-                <div className="content">
+                <div className={classes}>
                     {this.props.children}
                 </div>
                 <Footer />
