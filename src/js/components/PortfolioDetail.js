@@ -20,8 +20,8 @@ export default class PortfolioDetail extends React.Component {
 
     getImages() {
         var images = [];
-        this.state.item.images.map(function(image) {
-            images.push(<img src={image} className="portfolio-detail__gallery-item" />)
+        this.state.item.images.map(function(image, i) {
+            images.push(<img src={image} className="portfolio-detail__gallery-item" key={i} />)
         });
 
         return images;
