@@ -18,34 +18,39 @@ export default class DribbbleShots extends React.Component {
         })
     }
 
+    renderShots() {
+        var shots = [];
+        this.state.shots.forEach(function(shot) {
+            shots.push(<div className="dribbble-shots__shot" key={shot.id}><img src={shot.images.normal} className="js-shot-image" title={shot.title} /></div>)
+        });
+        return (
+            <div className="dribbble-shots" id="dribbbleShots">{shots}</div>
+        )
+    }
+
+    initFlickity() {
+        document.getElementById('dribbbleShots').classList.add('dribbble-shots--done');
+        if (window.matchMedia('(max-width: 599px)').matches) {
+            var flkty = new Flickity('#dribbbleShots', {
+                wrapAround: true,
+                prevNextButtons: false,
+                pageDots: false
+            });
+        }
+
+    }
+
     componentWillMount() {
         dribbbleApi.getShots().then(this.onChange.bind(this))
     }
 
-    renderShots() {
-        var shots = [];
-        this.state.shots.forEach(function(shot) {
-            shots.push(<div className="dribbble-shots__shot" key={shot.id}><img src={shot.images.normal} title={shot.title} /></div>)
-        });
-        return (
-            <div className="dribbble-shots dribbble-shots--done" id="dribbbleShots">{shots}</div>
-        )
-    }
-
     componentDidUpdate() {
-        if (window.matchMedia('(max-width: 599px)').matches) {
-            this.initFlickity()
-        }
+        document.getElementsByClassName('js-shot-image')[0].addEventListener('load', this.initFlickity);
     }
 
-    initFlickity() {
-        var flkty = new Flickity('#dribbbleShots', {
-            wrapAround: true,
-            prevNextButtons: false,
-            pageDots: false
-        });
+    componentWillUnmount() {
+        document.getElementsByClassName('js-shot-image')[0].removeEventListener('load', this.initFlickity);
     }
-
 
     render() {
         return this.state.shots.length ? this.renderShots() : <LoadingIndicator />
