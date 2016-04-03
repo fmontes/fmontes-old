@@ -13,7 +13,9 @@ export default class Main extends React.Component {
         return (
             <div>
                 <Header />
-                {this.props.children}
+                <div className="content">
+                    {this.props.children}
+                </div>
                 <Footer />
             </div>
         );

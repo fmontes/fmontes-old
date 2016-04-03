@@ -1,15 +1,17 @@
-// @import "../_bower_components/flickity/dist/flickity.css";
 @import "compass";
 @import "mixins";
 @import "normalize";
 @import "variables";
+@import "components/portfolio";
+@import "components/portfolioItem";
+@import "components/portfolioItemDetail";
 
 // Google Fonts
 @import url(http://fonts.googleapis.com/css?family=Glegoo:400,700);
 
 @include establish-baseline;
 
-* {
+*, *:before, *:after  {
     @include box-sizing("border-box");
 }
 
@@ -21,6 +23,7 @@ footer {
     @include adjust-font-size-to(12px, .75);
     color: $gray-dark;
     margin: 40px 0 20px;
+    text-align: center;
 
     a {
         color: $gray-dark;
@@ -58,13 +61,17 @@ header {
     }
 }
 
+img {
+    width: 100%;
+}
+
 .content, footer {
     margin-left: auto;
     margin-right: auto;
     width: 88%;
 
     @include min-screen($tablet) {
-        width: 440px;
+        width: 600px;
     }
 }
 
@@ -77,7 +84,7 @@ header {
 
     @include min-screen($tablet) {
         margin: 0 auto 40px;
-        width: 260px * 2;
+        width: 300px * 2;
     }
 
     &.done {
@@ -91,9 +98,9 @@ header {
 
         @include min-screen($tablet) {
             @include inline-block;
-            height: 194px;
+            height: 224px;
             margin: 0;
-            width: 260px;
+            width: 300px;
         }
 
         img {

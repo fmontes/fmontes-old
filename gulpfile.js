@@ -34,7 +34,7 @@ gulp.task('html', function() {
 });
 
 gulp.task('images', function() {
-    return gulp.src('./src/images/*.{gif,jpg,jpeg,png,svg,webp}')
+    return gulp.src('./src/images/**/*.{gif,jpg,jpeg,png,svg,webp}')
         .pipe(gulp.dest('build/images'));
 });
 
@@ -61,9 +61,9 @@ gulp.task('watch', function () {
         server: ['build']
     });
 
-    gulp.watch(['./src/*.html'], ['html', reload]);
+    gulp.watch(['./src/**/*.html'], ['html', reload]);
     gulp.watch(['./src/js/**/*.js'], ['scripts']);
-    gulp.watch(['./src/scss/*.scss'], ['styles']);
+    gulp.watch(['./src/scss/**/*.scss'], ['styles']);
 
     gulp.watch(['./build/css/*.css']).on('change', reload);
     gulp.watch(['./build/js/*.js']).on('change', reload);
@@ -73,7 +73,7 @@ gulp.task('watch', function () {
 // When running 'gulp' on the terminal this task will fire.
 // It will start watching for changes in every .js file.
 // If there's a change, the task 'scripts' defined above will fire.
-gulp.task('default', ['html', 'scripts', 'images', 'watch']);
+gulp.task('default', ['html', 'scripts', 'styles', 'images', 'watch']);
 
 // Private Functions
 // ----------------------------------------------------------------------------

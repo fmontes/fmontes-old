@@ -11,7 +11,7 @@ export default class Footer extends React.Component {
     render() {
         return (
             <footer>
-                <p>This site is build with <a href="http://jekyllrb.com/">Jekyll</a> and you can <a href="https://github.com/fmontes/fmontes">get the repo</a> and do whatever you want.</p>
+                <p>This single page app built with <a href="https://facebook.github.io/react/">React</a> and you can <a href="https://github.com/fmontes/fmontes">get the repo</a> and do whatever you want</p>
             </footer>
         );
     }

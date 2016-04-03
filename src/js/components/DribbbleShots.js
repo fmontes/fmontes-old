@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingIndicator from './LoadingIndicator';
 import dribbbleApi from '../lib/dribbbleApi';
 import Flickity from 'Flickity'
 
@@ -21,17 +22,11 @@ export default class DribbbleShots extends React.Component {
         dribbbleApi.getShots().then(this.onChange.bind(this))
     }
 
-    renderEmptyState() {
-        return (
-            <span><img src="/images/loader.gif" alt="" width="30" heigth="30" className="loading" id="loading" /></span>
-        )
-    }
-
     renderShots() {
         var shots = [];
         this.state.shots.forEach(function(shot) {
             shots.push(<div className="shot" key={shot.id}><img src={shot.images.normal} className="shot-image" title={shot.title} /></div>)
-        })
+        });
         return (
             <div className="dribbble-shots done" id="dribbbleShots">{shots}</div>
         )
@@ -53,6 +48,6 @@ export default class DribbbleShots extends React.Component {
 
 
     render() {
-        return this.state.shots.length ? this.renderShots() : this.renderEmptyState()
+        return this.state.shots.length ? this.renderShots() : <LoadingIndicator />
     }
 }
