@@ -1,0 +1,45 @@
+$toolbar-height: 36px;
+
+.toolbar {
+    @include transition(bottom, 300ms);
+    background-color: rgba($gray-dark, 0.9);
+    width: 100%;
+    position: fixed;
+    left: 0px;
+    bottom: -$toolbar-height;
+
+    &.toolbar--show {
+        bottom: 0
+    }
+}
+
+.toolbar__button {
+    @include inline-block;
+    height: $toolbar-height;
+    position: relative;
+    width: 50%;
+
+    &:last-child {
+        border-left: solid 1px $white;
+    }
+
+    &:before {
+        @include rotate(-45deg);
+        border: solid $white;
+        border-width: 1px 1px 0 0;
+        content: "";
+        height: 10px;
+        left: 50%;
+        margin-left: -7px;
+        position: absolute;
+        top: 16px;
+        width: 10px;
+    }
+}
+
+.toolbar__button-back {
+    &:before {
+        @include rotate(-135deg);
+        top: 14px
+    }
+}

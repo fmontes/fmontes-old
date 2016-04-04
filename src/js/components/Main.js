@@ -10,8 +10,8 @@ export default class Main extends React.Component {
     }
 
     render() {
-        var classes = 'content';
-        classes = this.props.location.pathname.replace('/', '') === 'dribbble' ? classes + ' dribbble' : classes;
+        var pathName = this.props.location.pathname.split('/');
+        var classes = 'content' + (pathName.length ? ' ' + pathName[1] : '');
         return (
             <div>
                 <Header />

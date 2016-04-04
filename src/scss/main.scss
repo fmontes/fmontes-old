@@ -7,6 +7,7 @@
 @import "components/portfolioItemDetail";
 @import "components/dribbbleShots";
 @import "components/loadingIndicator";
+@import "components/ToolBar";
 
 // Google Fonts
 @import url(http://fonts.googleapis.com/css?family=Glegoo:400,700);
@@ -30,6 +31,14 @@ footer {
     a {
         color: $gray-dark;
         font-weight: bold;
+    }
+
+    .portfolio + & {
+        margin-bottom: 50px;
+
+        @include min-screen($tablet) {
+            margin-bottom: 20px;
+        }
     }
 }
 

@@ -1,15 +1,16 @@
 import React from 'react';
 import LoadingIndicator from './LoadingIndicator';
 import portfolioApi from '../lib/portfolioApi';
-
+import ToolBar from './ToolBar';
 
 //TODO: Add back button on scroll
 export default class PortfolioDetail extends React.Component {
     constructor() {
         super();
         this.state = {
-            item: null
-        }
+            item: null,
+            showBackButton: false
+        };
     }
 
     onChange(data) {
@@ -36,6 +37,7 @@ export default class PortfolioDetail extends React.Component {
         var repo = item.repo ? (<p className="portfolio-detail__repo"><a href={item.repo} target="_blank">Get the code</a></p>) : [];
         return (
             <div className="portfolio-detail">
+                <ToolBar />
                 <h2 className="portfolio-detail__name">{item.name}</h2>
                 <p className="portfolio-detail__description">
                     {item.description}
