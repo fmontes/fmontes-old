@@ -16,7 +16,7 @@ export default class Home extends React.Component {
                 <div className="love">
                     <img src="/images/icn-love.svg" alt="I enjoy work with" className="icn-love" />
                     <div className="separator"></div>
-                    <p><b>I enjoy work with:</b> SASS, Grunt, NodeJS & Express, mongodb, Bower and starting with React.</p>
+                    <p><b>I enjoy working with:</b> SASS, Grunt, NodeJS & Express, mongodb, Bower and starting with React.</p>
                 </div>
             </div>
         );
