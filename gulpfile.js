@@ -32,7 +32,7 @@ gulp.task('build', function (){
     bundleApp(true);
 });
 
-gulp.task('deploy', ['build', 'styles', 'images', 'htmlblocks'], function() {
+gulp.task('deploy', ['build', 'styles', 'images', 'htmlblocks', 'cname'], function() {
     // Deploy to GH Pages
 });
 
@@ -42,6 +42,11 @@ gulp.task('htmlblocks', function() {
             'js': '/js/bundle.min.js'
         }))
         .pipe(gulp.dest('build/'));
+});
+
+gulp.task('cname', function() {
+    return gulp.src('./src/CNAME')
+        .pipe(gulp.dest('build'));
 });
 
 gulp.task('html', function() {
