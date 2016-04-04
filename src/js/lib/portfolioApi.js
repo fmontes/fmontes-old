@@ -3,8 +3,9 @@ var portfolioItems = [
         id: 'starter-app',
         name: 'Starter App',
         description: 'iOS App that I designed and code using Sketch and Titanium Framework.',
-        teaser: 'Design and code',
         thumb: '/images/portfolio/mobile-app/000-thumb.jpg',
+        teaser: 'Design and code',
+        repo: 'https://github.com/dotCMS/dotcms-mobile-app',
         images: [
             '/images/portfolio/mobile-app/001-Home.jpg',
             '/images/portfolio/mobile-app/002-Home-Menu.jpg',
@@ -21,6 +22,7 @@ var portfolioItems = [
         name: 'La Pulpe Webapp',
         description: 'A webapp I designed and coded with ReactJS and Material Design Lite.',
         teaser: 'Design and ReactJS',
+        repo: 'https://github.com/fmontes/pulpecr-react',
         thumb: '/images/portfolio/pulpe-app/000-thumb.jpg',
         images: [
             '/images/portfolio/pulpe-app/001-Home.jpg',

@@ -31,15 +31,17 @@ export default class PortfolioDetail extends React.Component {
         portfolioApi.getItemById(this.props.params.id).then(this.onChange.bind(this));
     }
 
-
     renderPortfolioItem() {
         var item = this.state.item;
+        var repo = item.repo ? (<p className="portfolio-detail__repo"><a href={item.repo} target="_blank">Get the code</a></p>) : [];
         return (
             <div className="portfolio-detail">
                 <h2 className="portfolio-detail__name">{item.name}</h2>
                 <p className="portfolio-detail__description">
                     {item.description}
                 </p>
+                {repo}
+                <hr className="portfolio-detail__separator" />
                 <div className="portfolio-detail__gallery">
                     {this.getImages()}
                 </div>

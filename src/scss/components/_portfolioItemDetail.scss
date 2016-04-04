@@ -5,7 +5,10 @@
 
 .portfolio-detail__description {
     color: $gray-dark;
-    border-bottom: solid 1px $gray-medium;
-    padding-bottom: 20px;
-    margin-bottom: 30px;
+}
+
+.portfolio-detail__separator {
+    border: none;
+    border-top: 1px solid $gray-medium;
+    margin: 20px 0 30px;
 }
