@@ -23,8 +23,8 @@ var portfolioItems = [
         teaser: 'Design and ReactJS',
         thumb: '/images/portfolio/pulpe-app/000-thumb.jpg',
         images: [
-            '/images/portfolio/pulpe-app/001-home.jpg',
-            '/images/portfolio/pulpe-app/002-cart.jpg'
+            '/images/portfolio/pulpe-app/001-Home.jpg',
+            '/images/portfolio/pulpe-app/002-Cart.jpg'
         ]
     },
     {
