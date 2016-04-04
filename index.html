@@ -1,25 +1,17 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><title>Freddy Montes - Frontend Developer</title><meta name=viewport content="width=device-width, initial-scale=1"><link rel=stylesheet href=/css/main.80cc.css></head><body><header><!-- TODO: fallback for svg --><img src=/images/freddy-montes-logo.555b.svg alt="Freddy Montes - Frontend Developer" class=logo><ul class=social-links><li><a href=http://github.com/fmontes target=_blank>Github</a></li><li><a href=http://cr.linkedin.com/in/fmontes target=_blank>Linked In</a></li><li><a href=http://twitter.com/fmontes target=_blank>Twitter</a></li></ul></header><div class=page><img src=/images/loader.8978.gif alt="" width=30 heigth=30 class=loading id=loading><div class=dribbble-shots id=dribbbleShots></div><div class=content><h3 class=intro><b>Graphic designer</b> who loved the web and became a full time <b>front-end developer</b>.</h3><p>Javascript, HTML and CSS to build perfect web experiences for mobile and desktop.</p><div class=love><img src=/images/icn-love.a785.svg alt="I enjoy work with" class=icn-love><div class=separator></div><p><b>I enjoy work with:</b> SASS, Grunt, NodeJS & Express, mongodb, Bower and starting with React.</p></div></div></div><footer><p>This site is build with <a href="http://jekyllrb.com/">Jekyll</a> and you can <a href=https://github.com/fmontes/fmontes>get the repo</a> and do whatever you want.</p></footer><script src=/js/scripts.22e5.js></script><script>var WebFontConfig = {
-    google: {
-      families: ['Glegoo']
-    },
-    timeout: 2000
-  };
-  (function(){
-    var wf = document.createElement("script");
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
-    wf.async = true;
-    document.head.appendChild(wf);
-  })();
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Freddy Montes - FrontEnd Developer & UI Designer</title>
+	<link rel="stylesheet" href="/css/main.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+	<!-- React element goes here -->
+	<div id="app"></div>
 
-  if (window.location.hostname === 'fmontes.com') {
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-2692116-8']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  }</script></body></html>
+	<!-- one script to rule them all (in production) -->
+	<script src="/js/bundle.min.js"></script>
+</body>
+</html>
