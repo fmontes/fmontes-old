@@ -6,6 +6,7 @@ var browserSync = require('browser-sync');
 var buffer = require('vinyl-buffer');
 var compass = require('gulp-compass');
 var cssMinify = require('gulp-minify-css');
+var ghPages = require('gulp-gh-pages');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var htmlreplace = require('gulp-html-replace');
@@ -25,15 +26,16 @@ var scriptsCount = 0;
 // Gulp tasks
 // ----------------------------------------------------------------------------
 gulp.task('scripts', function () {
-    bundleApp(false);
+    return bundleApp(false);
 });
 
 gulp.task('build', function (){
-    bundleApp(true);
+    return bundleApp(true);
 });
 
 gulp.task('deploy', ['build', 'styles', 'images', 'htmlblocks', 'cname'], function() {
-    // Deploy to GH Pages
+    return gulp.src('./build/**/*')
+        .pipe(ghPages());
 });
 
 gulp.task('htmlblocks', function() {
@@ -135,7 +137,7 @@ function bundleApp(isProduction) {
         })
     }
 
-    appBundler
+    return appBundler
         // transform ES6 and JSX to ES5 with babelify
         .transform('babelify', {presets: ['es2015', 'react']})
         .bundle()
