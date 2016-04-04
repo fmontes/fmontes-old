@@ -1,7 +1,5 @@
 import React from 'react';
-import { browserHistory, hashHistory } from 'react-router';
-
-const ReactRouterHistory = window.location.hostname === 'localhost' ? hashHistory : browserHistory;
+import { hashHistory } from 'react-router';
 
 export default class ToolBar extends React.Component {
     constructor() {
@@ -45,7 +43,7 @@ export default class ToolBar extends React.Component {
     renderToolBar() {
         return (
             <div className={this.state.showBackButton ? 'toolbar toolbar--show' : 'toolbar'}>
-                <a onClick={ReactRouterHistory.goBack} className="toolbar__button toolbar__button-back"></a>
+                <a onClick={hashHistory.goBack} className="toolbar__button toolbar__button-back"></a>
                 <a onClick={this.scrollToTop} className="toolbar__button toolbar__button-top"></a>
             </div>
         );
