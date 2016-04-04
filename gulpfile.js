@@ -1,13 +1,17 @@
-// declarations, dependencies
-// ----------------------------------------------------------------------------
-var gulp = require('gulp');
-var browserify = require('browserify');
-var source = require('vinyl-source-stream');
-var gutil = require('gulp-util');
+// TODO: improve the build/watch system
+
 var babelify = require('babelify');
+var browserify = require('browserify');
 var browserSync = require('browser-sync');
-var reload = browserSync.reload;
+var buffer = require('vinyl-buffer');
 var compass = require('gulp-compass');
+var cssMinify = require('gulp-minify-css');
+var gulp = require('gulp');
+var gutil = require('gulp-util');
+var htmlreplace = require('gulp-html-replace');
+var reload = browserSync.reload;
+var source = require('vinyl-source-stream');
+var uglify = require('gulp-uglify');
 
 // External dependencies you do not want to rebundle while developing,
 // but include in your application deployment
@@ -24,8 +28,20 @@ gulp.task('scripts', function () {
     bundleApp(false);
 });
 
-gulp.task('deploy', function (){
+gulp.task('build', function (){
     bundleApp(true);
+});
+
+gulp.task('deploy', ['build', 'styles', 'images', 'htmlblocks'], function() {
+    // Deploy to GH Pages
+});
+
+gulp.task('htmlblocks', function() {
+    return gulp.src('./src/*.html')
+        .pipe(htmlreplace({
+            'js': '/js/bundle.min.js'
+        }))
+        .pipe(gulp.dest('build/'));
 });
 
 gulp.task('html', function() {
@@ -45,6 +61,8 @@ gulp.task('styles', function() {
         css: 'build/css',
         sass: 'src/scss'
     }))
+    .pipe(cssMinify())
+    .pipe(gulp.dest('./build/css'))
     .on('error', function(err) {
         console.log(err.message)
     })
@@ -73,7 +91,9 @@ gulp.task('watch', function () {
 // When running 'gulp' on the terminal this task will fire.
 // It will start watching for changes in every .js file.
 // If there's a change, the task 'scripts' defined above will fire.
-gulp.task('default', ['html', 'scripts', 'styles', 'images', 'watch']);
+gulp.task('default', ['scripts', 'html', 'styles', 'images'], function() {
+    gulp.run('watch');
+});
 
 // Private Functions
 // ----------------------------------------------------------------------------
@@ -84,7 +104,7 @@ function bundleApp(isProduction) {
     var appBundler = browserify({
         entries: './src/js/app.js',
         debug: true
-    })
+    });
 
     // If it's not for production, a separate vendors.js file will be created
     // the first time gulp is run so that we don't have to rebundle things like
@@ -93,7 +113,7 @@ function bundleApp(isProduction) {
         // create vendors.js for dev environment.
         browserify({
             require: dependencies,
-            debug: true,
+            debug: true
         })
         .bundle()
         .on('error', gutil.log)
@@ -110,13 +130,13 @@ function bundleApp(isProduction) {
         })
     }
 
-
-    // TODO: add minify
     appBundler
         // transform ES6 and JSX to ES5 with babelify
         .transform('babelify', {presets: ['es2015', 'react']})
         .bundle()
         .on('error', gutil.log)
-        .pipe(source('bundle.js'))
+        .pipe(source(isProduction ? 'bundle.min.js' : 'bundle.js'))
+        .pipe(buffer())
+        .pipe(uglify(false))
         .pipe(gulp.dest('./build/js'));
 }
